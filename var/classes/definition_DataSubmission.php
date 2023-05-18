@@ -62,7 +62,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'DataSubmission',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1684390274,
+   'modificationDate' => 1684396253,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -1318,34 +1318,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                ),
-                 'locked' => false,
-                 'blockedVarsForExport' => 
-                array (
-                ),
-                 'fieldtype' => 'panel',
-                 'layout' => NULL,
-                 'border' => false,
-                 'icon' => '',
-                 'labelWidth' => 0,
-                 'labelAlign' => 'left',
-              )),
-              3 => 
-              Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-                 'name' => 'Layout',
-                 'type' => NULL,
-                 'region' => NULL,
-                 'title' => 'media data',
-                 'width' => '',
-                 'height' => '',
-                 'collapsible' => false,
-                 'collapsed' => false,
-                 'bodyStyle' => '',
-                 'datatype' => 'layout',
-                 'permissions' => NULL,
-                 'children' => 
-                array (
-                  0 => 
+                  12 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'LeadTime',
                      'title' => 'Lead Time',
@@ -1376,7 +1349,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  1 => 
+                  13 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
                      'name' => 'MinOrderQuantity',
                      'title' => 'Min Order Quantity',
@@ -1413,7 +1386,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'autoConvert' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  2 => 
+                  14 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'StockStatus',
                      'title' => 'Stock Status',
@@ -1444,7 +1417,34 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  3 => 
+                ),
+                 'locked' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'fieldtype' => 'panel',
+                 'layout' => NULL,
+                 'border' => false,
+                 'icon' => '',
+                 'labelWidth' => 0,
+                 'labelAlign' => 'left',
+              )),
+              3 => 
+              Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
+                 'name' => 'Layout',
+                 'type' => NULL,
+                 'region' => NULL,
+                 'title' => 'Multimedia',
+                 'width' => '',
+                 'height' => '',
+                 'collapsible' => false,
+                 'collapsed' => false,
+                 'bodyStyle' => '',
+                 'datatype' => 'layout',
+                 'permissions' => NULL,
+                 'children' => 
+                array (
+                  0 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                      'name' => 'DimensionalImage',
                      'title' => 'Dimensional Image',
@@ -1468,7 +1468,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'height' => '',
                      'uploadPath' => '',
                   )),
-                  4 => 
+                  1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ThreeDCADModel',
                      'title' => '3D C A D Model',
@@ -1499,7 +1499,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  5 => 
+                  2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductBrochure',
                      'title' => 'Product Brochure',
@@ -1530,7 +1530,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  6 => 
+                  3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductCatalog',
                      'title' => 'Product Catalog',
@@ -1561,7 +1561,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  7 => 
+                  4 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'CompatibilityChart',
                      'title' => 'Compatibility Chart',
@@ -1592,7 +1592,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  8 => 
+                  5 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'TermsandConditions',
                      'title' => 'Terms and Conditions',
@@ -1623,7 +1623,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'showCharCount' => false,
                      'defaultValueGenerator' => '',
                   )),
-                  9 => 
+                  6 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                      'name' => 'IsometricImage',
                      'title' => 'Isometric Image',
@@ -1647,7 +1647,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'height' => '',
                      'uploadPath' => '',
                   )),
-                  10 => 
+                  7 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                      'name' => 'GallaryImage',
                      'title' => 'Gallary Image',
@@ -1671,7 +1671,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'height' => '',
                      'uploadPath' => '',
                   )),
-                  11 => 
+                  8 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Image::__set_state(array(
                      'name' => 'WarningImage',
                      'title' => 'Warning Image',
@@ -1695,7 +1695,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'height' => '',
                      'uploadPath' => '',
                   )),
-                  12 => 
+                  9 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Video::__set_state(array(
                      'name' => 'ProductVideo',
                      'title' => 'Product Video',
