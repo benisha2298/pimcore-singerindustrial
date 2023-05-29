@@ -1,0 +1,13 @@
+pimcore_data_hub:
+    configurations:
+        Mygraphql:
+            general:
+                type: graphql
+                path: null
+                name: Mygraphql
+                modificationDate: 1684738924
+                createDate: 1684738924
+            workspaces: {  }
+            permissions:
+                user: {  }
+                role: {  }

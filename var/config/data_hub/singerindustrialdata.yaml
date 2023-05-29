@@ -1,0 +1,13 @@
+pimcore_data_hub:
+    configurations:
+        singerindustrialdata:
+            general:
+                type: dataImporterDataObject
+                path: null
+                name: singerindustrialdata
+                modificationDate: 1685168958
+                createDate: 1685168958
+            workspaces: {  }
+            permissions:
+                user: {  }
+                role: {  }

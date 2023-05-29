@@ -1,0 +1,50 @@
+pimcore_data_hub:
+    configurations:
+        Mydataimpoter:
+            general:
+                active: true
+                type: dataImporterDataObject
+                name: Mydataimpoter
+                description: ''
+                group: ''
+                path: null
+                modificationDate: 1685009962
+                createDate: 1684739597
+            loaderConfig:
+                type: asset
+                settings:
+                    assetPath: '/Data Structure.csv'
+            interpreterConfig:
+                type: csv
+                settings:
+                    delimiter: ','
+                    enclosure: '"'
+                    escape: \
+            resolverConfig:
+                elementType: dataObject
+                dataObjectClassId: '1'
+                loadingStrategy:
+                    type: notLoad
+                createLocationStrategy:
+                    type: staticPath
+                    settings:
+                        path: /Singerindustrial
+                locationUpdateStrategy:
+                    type: findOrCreateFolder
+                    settings:
+                        dataSourceIndex: '116'
+                        fallbackPath: SingerInsdustrial
+                publishingStrategy:
+                    type: alwaysPublish
+            processingConfig:
+                executionType: parallel
+                idDataIndex: ''
+            mappingConfig: {  }
+            executionConfig:
+                scheduleType: recurring
+                cronDefinition: ''
+                scheduledAt: ''
+            permissions:
+                user: {  }
+                role: {  }
+            workspaces: {  }

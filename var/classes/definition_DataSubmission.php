@@ -109,7 +109,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'DataSubmission',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1684501861,
+   'modificationDate' => 1684739362,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -1124,6 +1124,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'blockedVarsForExport' => 
                     array (
                     ),
+                     'options' => NULL,
                      'width' => '',
                      'defaultValue' => NULL,
                      'optionsProviderClass' => NULL,
