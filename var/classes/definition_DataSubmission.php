@@ -11,7 +11,7 @@
  * - FullOrderCode [numeric]
  * - PartNumber [input]
  * - ProductName [input]
- * - VendorProductDescription [input]
+ * - VendorProductDescription [textarea]
  * - ProductTradeName [input]
  * - Category [input]
  * - SubCategory [input]
@@ -54,8 +54,8 @@
  * - GallaryImage [image]
  * - WarningImage [image]
  * - ProductVideo [video]
- * - HoseInsideDiameterFraction [input]
- * - HoseInsideDiameterFractionInches [input]
+ * - HoseInsideDiameter [input]
+ * - HoseInsideDiameterInches [input]
  * - HoseOutsideDiameterInches [input]
  * - AbrasionResistance [input]
  * - AirInclusionmax [input]
@@ -101,6 +101,7 @@
  * - Threadsealant [input]
  * - Torque [input]
  * - Tubewallthickness [input]
+ * - Vacuumrating [input]
  */
 
 return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -109,7 +110,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'name' => 'DataSubmission',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1684739362,
+   'modificationDate' => 1685443675,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -374,9 +375,9 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'defaultValueGenerator' => '',
                   )),
                   6 => 
-                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
                      'name' => 'VendorProductDescription',
-                     'title' => 'ProductDesc.',
+                     'title' => 'Vendor Product Description',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -385,7 +386,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'style' => '',
                      'permissions' => NULL,
                      'datatype' => 'data',
-                     'fieldtype' => 'input',
+                     'fieldtype' => 'textarea',
                      'relationType' => false,
                      'invisible' => false,
                      'visibleGridView' => false,
@@ -394,15 +395,10 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     array (
                     ),
                      'width' => '',
-                     'defaultValue' => NULL,
-                     'columnLength' => 150,
-                     'regex' => '',
-                     'regexFlags' => 
-                    array (
-                    ),
-                     'unique' => false,
+                     'height' => '',
+                     'maxLength' => NULL,
                      'showCharCount' => false,
-                     'defaultValueGenerator' => '',
+                     'excludeFromSearchIndex' => false,
                   )),
                   7 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
@@ -832,7 +828,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   8 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'PackageHeight',
-                     'title' => 'Package Height',
+                     'title' => 'Package Height (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -863,7 +859,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   9 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'PackageLength',
-                     'title' => 'Package Length',
+                     'title' => 'Package Length (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -894,7 +890,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   10 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'PackageWidth',
-                     'title' => 'Package Width',
+                     'title' => 'Package Width (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -925,7 +921,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   11 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'PackageWeight',
-                     'title' => 'Package Weight',
+                     'title' => 'Package Weight (pounds)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -983,7 +979,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   0 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductHeight',
-                     'title' => 'Product Height',
+                     'title' => 'Product Height (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1014,7 +1010,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductLength',
-                     'title' => 'Product Length',
+                     'title' => 'Product Length (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1045,7 +1041,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductWidth',
-                     'title' => 'Product Width',
+                     'title' => 'Product Width (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1076,7 +1072,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   3 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'ProductWeight',
-                     'title' => 'Product Weight',
+                     'title' => 'Product Weight (pounds)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1124,7 +1120,6 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                      'blockedVarsForExport' => 
                     array (
                     ),
-                     'options' => NULL,
                      'width' => '',
                      'defaultValue' => NULL,
                      'optionsProviderClass' => NULL,
@@ -1369,7 +1364,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   12 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'LeadTime',
-                     'title' => 'Lead Time',
+                     'title' => 'Lead Time (days)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1805,8 +1800,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 array (
                   0 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'HoseInsideDiameterFraction',
-                     'title' => 'Hose Inside Diameter',
+                     'name' => 'HoseInsideDiameter',
+                     'title' => 'Hose Inside Diameter (Fraction)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1836,8 +1831,8 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   )),
                   1 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'HoseInsideDiameterFractionInches',
-                     'title' => 'Hose Inside Diameter Fraction',
+                     'name' => 'HoseInsideDiameterInches',
+                     'title' => 'Hose Inside Diameter (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -1868,7 +1863,7 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   2 => 
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'HoseOutsideDiameterInches',
-                     'title' => 'Hose Outside Diameter Inches',
+                     'title' => 'Hose Outside Diameter (Inches)',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
@@ -3233,6 +3228,37 @@ return Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                   Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                      'name' => 'Tubewallthickness',
                      'title' => 'Tube wall thickness',
+                     'tooltip' => '',
+                     'mandatory' => false,
+                     'noteditable' => false,
+                     'index' => false,
+                     'locked' => false,
+                     'style' => '',
+                     'permissions' => NULL,
+                     'datatype' => 'data',
+                     'fieldtype' => 'input',
+                     'relationType' => false,
+                     'invisible' => false,
+                     'visibleGridView' => false,
+                     'visibleSearch' => false,
+                     'blockedVarsForExport' => 
+                    array (
+                    ),
+                     'width' => '',
+                     'defaultValue' => NULL,
+                     'columnLength' => 190,
+                     'regex' => '',
+                     'regexFlags' => 
+                    array (
+                    ),
+                     'unique' => false,
+                     'showCharCount' => false,
+                     'defaultValueGenerator' => '',
+                  )),
+                  47 => 
+                  Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                     'name' => 'Vacuumrating',
+                     'title' => 'Vacuum rating',
                      'tooltip' => '',
                      'mandatory' => false,
                      'noteditable' => false,
