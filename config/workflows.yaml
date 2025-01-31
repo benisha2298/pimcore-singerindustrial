@@ -1,0 +1,121 @@
+pimcore:
+    workflows:
+        product_workflow:
+            label: 'Product Workflow'
+            type: 'state_machine'
+            supports:
+                - 'Pimcore\Model\DataObject\PlumbingAndSafety'  # Replace with your actual Data Object
+            places:
+                new:
+                    label: 'New'
+                    color: '#377ea9'
+                    permissions:
+                        - objectLayout: 1
+                reopen:
+                    label: 'Reopen'
+                    color: '#ff9800'
+                data_updated:
+                    label: 'Data Updated'
+                    color: '#d9ef36'
+                    permissions:
+                        - objectLayout: 2    
+                data_approved:
+                    label: 'Data Approved'
+                    color: '#4caf50'
+                catalog_approved:
+                    label: 'Catalog Approved'
+                    color: '#28a013'
+            transitions:
+                submit_for_approval:
+                    from: [new, reopen]
+                    to: data_updated
+                    options:
+                        label: 'Submit for Approval'
+                        notificationSettings:
+                            -
+                                condition: ''
+                                notifyUsers: {  }
+                                notifyRoles:
+                                    - Data_Quality_Specialist
+                                channelType:
+                                    - mail
+                                    - pimcore_notification
+                                mailType: template
+                                mailPath: ''
+                approve_data:
+                    from: data_updated
+                    to: data_approved
+                    guard: "is_fully_authenticated() and is_granted('ROLE_DATA_QUALITY_SPECIALIST')"
+                    options:
+                        label: 'Approved Data'
+                        notificationSettings:
+                            -
+                                condition: ''
+                                notifyUsers: {  }
+                                notifyRoles:
+                                    - Product_Data_Analyst
+                                    - Catalog_Manager
+                                channelType:
+                                    - mail
+                                    - pimcore_notification
+                                mailType: template
+                                mailPath: ''
+                reject_data:
+                    from: data_updated
+                    to: reopen
+                    guard: "is_fully_authenticated() and is_granted('ROLE_DATA_QUALITY_SPECIALIST')"
+                    options:
+                        label: 'Reject Data'
+                        notes:
+                            commentEnabled: true
+                            commentRequired: true
+                        notificationSettings:
+                            -
+                                condition: ''
+                                notifyUsers: {  }
+                                notifyRoles:
+                                    - Product_Data_Analyst
+                                channelType:
+                                    - mail
+                                    - pimcore_notification
+                                mailType: template
+                                mailPath: ''
+                approve_catalog:
+                    from: data_approved
+                    to: catalog_approved
+                    guard: "is_fully_authenticated() and is_granted('ROLE_CATALOG_MANAGER')"
+                    options:
+                        label: 'Approved Catalog'
+                        notificationSettings:
+                            -
+                                condition: ''
+                                notifyUsers: {  }
+                                notifyRoles:
+                                    - Product_Data_Analyst
+                                    - Data_Quality_Specialist
+                                channelType:
+                                    - mail
+                                    - pimcore_notification
+                                mailType: template
+                                mailPath: ''
+                reject_catalog:
+                    from: data_approved
+                    to: reopen
+                    guard: "is_fully_authenticated() and is_granted('ROLE_CATALOG_MANAGER')"
+                    options:
+                        label: 'Reject Catalog'
+                        notes:
+                            commentEnabled: true
+                            commentRequired: true
+                        notificationSettings:
+                            -
+                                condition: ''
+                                notifyUsers: {  }
+                                notifyRoles:
+                                    - Product_Data_Analyst
+                                    - Data_Quality_Specialist
+                                channelType:
+                                    - mail
+                                    - pimcore_notification
+                                mailType: template
+                                mailPath: ''

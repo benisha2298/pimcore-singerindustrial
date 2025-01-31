@@ -40,9 +40,9 @@ class Web2printController extends FrontendController
         $paramsBag = array_merge($request->request->all(), $request->query->all(), $paramsBag);
 
         if ($this->document->getProperty('hide-layout')) {
-            return $this->render('web2print/default_no_layout.html.twig', $paramsBag);
+            return $this->render('pdf_front/pdfgenerate.html.twig', $paramsBag);
         } else {
-            return $this->render('web2print/default.html.twig', $paramsBag);
+            return $this->render('pdf_front/pdfgenerate.html.twig', $paramsBag);
         }
     }
 

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XLSX to PDF</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.upload-file-styles {
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    border: 2px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.upload-icon {
+    width: 50px; /* Adjust the size of the image */
+    margin-bottom: 10px; /* Spacing below the image */
+}
+
+.files_upload {
+    position: absolute;
+    bottom: 30px; /* Keeps the "Choose File" button and text above the bottom edge */
+    cursor: pointer;
+    opacity: 0; /* Hides the native input */
+    width: 100%;
+    height: 100%;
+}
+
+.upload-file-styles::after {
+    content: '\00a0';
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #666;
+    pointer-events: none; /* Ensures the text is not clickable */
+}
+
+   body {
+    padding: 0;
+    margin: 0;    
+    font-size: 14px;
+    background-color: #f4f4f9;
+    color: #333;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#site {
+    margin: 50px auto;
+    width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+#logo{margin-bottom:30px;}
+#logo h2 {
+   font-size: 36px;
+    color: #333;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    display: block;
+    margin: 10px auto 20px auto;
+    padding: 8px;
+    width: 100%;
+    max-width: 500px;
+}
+
+input[type="submit"] {
+    background: rgb(30, 181, 28);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer !important;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background:rgb(52, 182, 143);
+    transform: scale(1.05);
+}
+
+input[type="submit"]:active {
+    background: rgb(52, 182, 143);
+    transform: scale(0.95); /* Slight shrink effect */
+}
+
+#site-container {
+    text-align: center;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background:rgb(17, 173, 147); /* Hover background color */
+}
+.upload-file-styles{}
+
+/*pdf styles*/
+#content-to-print {
+      width: 794px; /* Standard A4 width in pixels */
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+    }
+ /* font family */
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+h1, h2, h3, h4, h5, h6, li, ol, a, div, p {
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.right-alignment{text-align:right;}
+.pdf-header{
+  border-bottom: solid 4px #c00000;
+  padding: 8px;
+}
+.pdf-header h5{
+  margin-bottom: 0;
+    color: #c00000;
+    font-weight: 500;
+}
+.sidebar-section{
+  background-color: #c00000;
+  margin-top: 50px; 
+}
+.features-list li{color: #fff;margin-bottom: 5px;}
+.sidebar-section h4{
+  background-color: #fff;
+    color: #c00000;
+    padding: 20px 0;
+    text-align: center;
+}
+.main-section h5{color:#A6A6A6;}
+.product-img{border:solid 2px #000;padding:50px 70px;}
+.pdf-container-fluid{background-color: #c00000;padding: 0;}
+.page-section{margin: 50px 0;}
+.main-section{padding-left: 30px;margin-top: 50px;}
+.main-section h2, .main-section h5{margin-bottom:20px;}
+.para-section{margin-top:50px;}
+.features-list{padding: 50px;}
+.page-footer p,.page-footer a {color:#c00000;margin-bottom:0;font-size: 12px;}
+.page-footer{border-top: solid 4px #c00000;padding: 20px 0;}
+.main-section h2{color:#c00000;}
+.secondary-heading{
+  width: fit-content;
+    color: #fff;
+    background-color: #c00000;
+    padding: 8px 25px;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+.page-section hr{
+    margin: 0;
+    color: #c00000;
+    border-top: solid 3px #c00000;
+    opacity: 1;
+}
+.content-box{
+  margin-top: 20px;
+    padding: 30px 10px;
+    border: solid 1px #F9D4B9
+}
+.content-box h4{margin-bottom:20px;}
+table {
+  width: 100%;
+  border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #F9D4B9;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #fbe4d5;
+    }
+    .table-data{margin-top:20px;}
+    .table-data-with-header th, .table-data-with-header td {text-align:center;}
+    #preview-button {
+    background-color: #cb8d41; /* Blue background */
+    color: #ffffff; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    font-size: 14px; /* Increase font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+#preview-button:hover {
+    background-color:#cb8d41;
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+#preview-button:active {
+    background-color: #cb8d41; /* Even darker blue on click */
+    transform: scale(0.95); /* Slight shrink effect */
+}
+#preview-hide {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 14px; /* Font size */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+#preview-hide:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#preview-hide:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow on focus */
+}
+
+</style>
+
+<script>
+    $(document).ready(function () {
+        function getFormData() {
+            var form = $('#upload-form')[0]; // Get the form element
+            var formData = new FormData(form); // Create a FormData object
+            return formData;
+        }
+
+        $('#preview-button').on('click', function () {
+            var formData = getFormData();
+
+            // Example: Send formData to preview endpoint
+            $.ajax({
+                url: 'http://pimcore.altiussolution.com/api/pdf-template-controller', // Replace with your preview endpoint
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#preview-div').html(response);
+                    $('#preview-div').show();
+                    $('#preview-hide').show();
+                    $('#preview-button').hide();
+                },
+                error: function (xhr, status, error) {
+                    alert('Failed to preview. Please try again.');
+                    console.error(error); // Debug error
+                }
+            });
+        });
+        $('#preview-hide').on('click', function () {
+            $('#preview-div').hide();
+            $('#preview-hide').hide();
+            $('#preview-button').show();
+        });
+    $('#upload-form').submit(function (e) {
+        e.preventDefault(); // Prevent the default form submission
+
+        // Create a FormData object to send the file via AJAX
+        var formData = new FormData(this);
+        $.ajax({
+            url: 'http://pimcore.altiussolution.com/api/pdf-export',
+            type: 'POST',
+            data: formData,
+            processData: false, // Prevent jQuery from processing the FormData
+            contentType: false, // Prevent jQuery from setting the content type
+            xhrFields: {
+                responseType: 'blob' // Set the response type to 'blob'
+            },
+            success: function (response, status, xhr) {
+                try {
+                    // Get the 'Content-Disposition' header
+                    var disposition = xhr.getResponseHeader('Content-Disposition');
+                    var fileName = 'download.zip'; // Default filename
+
+                    if (disposition && disposition.includes('filename=')) {
+                        // Extract the filename from the header
+                        var matches = disposition.match(/filename="(.+)"/);
+                        if (matches && matches[1]) {
+                            fileName = matches[1];
+                        }
+                    }
+
+                    // Create a blob and download the file
+                    var blob = new Blob([response], { type: 'application/zip' });
+                    var link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = fileName;
+                    link.click();
+
+                    console.log("File downloaded successfully: " + fileName);
+                } catch (error) {
+                    console.error("Error processing response:", error);
+                    alert("An error occurred while processing the file download.");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error during file upload:", error);
+                alert("File upload failed. Please try again.");
+            }
+        });
+    });
+});
+
+
+
+</script>
+
+<div id="site" class="site-container">
+    <div id="logo">
+        <h2>XLSX to PDF</h2>
+        <p>Add your document below!</p>
+    </div>
+    <form id="upload-form" enctype="multipart/form-data">
+       <div class="upload-file-styles"> <input type="file" name="xlsx_to_pdf" id="xlsx_to_pdf" class="files_upload"></div>
+        <input type="submit" name="upload file" id="upload_file" value="Download Pdf">
+        <button type="button" id="preview-button">View Pdf Preview</button>
+        <button type="button" id="preview-hide" style="display:none;">Hide Preview</button>
+    </form>
+</div>
+<div id='preview-div' style="display:none;">
+    
+  </div>
+</div>
+
+</body>
+</html>

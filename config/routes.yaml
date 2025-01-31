@@ -4,3 +4,150 @@ _pimcore:
 app:
     resource: "../src/Controller/"
     type: annotation
+
+
+app_rest_categories_import:    
+    path: /api/categories-import
+    defaults: { _controller: App\Importer\CategoryImportController::CategoryImport }
+    methods:  [POST]
+    options:
+        expose: true
+
+app_rest_products_import:    
+    path: /api/products-import
+    defaults: { _controller: App\Importer\ProductsImportController::ProductsImport }
+    methods:  [POST]
+    options:
+        expose: true
+
+app_rest_categories_export:    
+    path: /api/categories-export
+    defaults: { _controller: App\Connectors\ProductCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_products_export:    
+    path: /api/products-export
+    defaults: { _controller: App\Connectors\ProductCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_bulk_products_export:    
+    path: /api/bulk-products-export
+    defaults: { _controller: App\Connectors\BulkProductSAndCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_products_export_to_magento:    
+    path: /api/products-export-magento
+    defaults: { _controller: App\Connectors\MagentoProductsExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true   
+
+app_rest_categories_export_to_magento:    
+    path: /api/category-export-magento
+    defaults: { _controller: App\Connectors\MagentoProductsExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true   
+
+import_classification_store:
+    path: /import-classification-store
+    controller: App\Controller\ClassificationStoreController::importClassificationStore
+    methods: [POST]
+    options:
+        expose: true
+
+app_rest_dass_categories_export:    
+    path: /api/dass-categories-export
+    defaults: { _controller: App\Connectors\DassProductCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_dass_products_export:    
+    path: /api/dass-products-export
+    defaults: { _controller: App\Connectors\DassProductCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_bulk_dass_products_export:    
+    path: /api/dass-bulk-products-export
+    defaults: { _controller: App\Connectors\DassBulkProductSAndCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_test_categories_export:    
+    path: /api/test-categories-export
+    defaults: { _controller: App\Importer\TestCategoryImportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_export_to_shopify:    
+    path: /api/shopify-export
+    defaults: { _controller: App\Connectors\ShopifyProductsExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_bulk_categories_export:    
+    path: /api/bulk-categories-export
+    defaults: { _controller: App\Connectors\BulkProductCategoriesExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+app_rest_bulk_magento_connector:    
+    path: /api/magento-connector
+    defaults: { _controller: App\Connectors\MagentoProductsConnectorController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_bulk_dass_products_export_magento:    
+    path: /api/dass-bulk-products-export-magento
+    defaults: { _controller: App\Connectors\MagentoBulkProductsExportController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_test_export_magento:    
+    path: /api/test-magento
+    defaults: { _controller: App\Connectors\TestMagentoBulkController::TestProductsExportToMagento }
+    methods:  [GET,POST]
+    options:
+        expose: true
+
+app_rest_xlsx_to_pdf:    
+    path: /api/pdf-export
+    defaults: { _controller: App\Controller\PdfRsProConvertorController::PdfConvertor }
+    methods:  [GET,POST]
+    options:
+        expose: true
+        
+        
+app_rest_file_to_pdf:    
+    path: /api/pdf-controller
+    defaults: { _controller: App\Controller\Rspropdfconvert::pdfconvert }
+    methods:  [GET,POST]
+    options:
+        expose: true        
+
+app_rest_file_to_pdf_template:    
+    path: /api/pdf-template-controller
+    defaults: { _controller: App\Controller\PDFtemplateController::pdftemplate }
+    methods:  [GET,POST]
+    options:
+        expose: true   
+app_rest_bulk_shopify_connector:    
+    path: /api/shopify-connector
+    defaults: { _controller: App\Connectors\ShopifyProductsConnectorController::defaultAction }
+    methods:  [GET,POST]
+    options:
+        expose: true

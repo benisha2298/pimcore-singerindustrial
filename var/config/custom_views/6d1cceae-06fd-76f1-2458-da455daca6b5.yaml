@@ -1,0 +1,35 @@
+pimcore:
+    custom_views:
+        definitions:
+            6d1cceae-06fd-76f1-2458-da455daca6b5:
+                name: Assets
+                treetype: asset
+                position: left
+                rootfolder: /
+                showroot: true
+                sort: 0
+                treeContextMenu:
+                    asset:
+                        items:
+                            add:
+                                hidden: false
+                                items:
+                                    upload: true
+                                    uploadCompatibility: true
+                                    uploadZip: true
+                                    importFromServer: true
+                                    uploadFromUrl: true
+                            addFolder: true
+                            rename: true
+                            copy: true
+                            cut: true
+                            paste: true
+                            pasteCut: true
+                            delete: true
+                            searchAndMove: true
+                            lock: true
+                            unlock: true
+                            lockAndPropagate: true
+                            unlockAndPropagate: true
+                            reload: true
+                icon: /bundles/pimcoreadmin/img/flat-color-icons/asset.svg

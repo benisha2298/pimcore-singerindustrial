@@ -1,0 +1,34 @@
+pimcore:
+    custom_views:
+        definitions:
+            37453cd8-4a48-5ff0-3430-4492beba96f7:
+                name: Products
+                treetype: object
+                position: left
+                rootfolder: /Products
+                showroot: true
+                sort: 0
+                treeContextMenu:
+                    object:
+                        items:
+                            add: true
+                            addFolder: true
+                            importCsv: true
+                            cut: true
+                            copy: true
+                            paste: true
+                            delete: true
+                            rename: true
+                            reload: true
+                            publish: true
+                            unpublish: true
+                            searchAndMove: true
+                            lock: true
+                            unlock: true
+                            lockAndPropagate: true
+                            unlockAndPropagate: true
+                            changeChildrenSortBy: true
+                classes: PlumbingAndSafety
+                icon: /bundles/pimcoreadmin/img/object-icons/10_blue.svg
+                joins: {  }
+                id: 37453cd8-4a48-5ff0-3430-4492beba96f7

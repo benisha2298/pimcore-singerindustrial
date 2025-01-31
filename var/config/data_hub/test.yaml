@@ -1,0 +1,13 @@
+pimcore_data_hub:
+    configurations:
+        test:
+            general:
+                type: graphql
+                path: null
+                name: test
+                modificationDate: 1731733710
+                createDate: 1731733710
+            workspaces: {  }
+            permissions:
+                user: {  }
+                role: {  }

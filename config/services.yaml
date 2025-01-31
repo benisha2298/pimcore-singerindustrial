@@ -50,6 +50,13 @@ services:
         tags: [ 'controller.service_arguments' ]
 
 
+    App\Model\Provider\:
+        resource: '../src/Model/Provider'
+        public: true
+    
+    App\Model\Provider\CategoryoptionsProvider:
+       public: true
+
     #
     # COMMANDS
     #
@@ -60,6 +67,17 @@ services:
         tags: [ 'console.command' ]
 
 
+    App\Importer\:
+        resource: '../src/Importer'
+        public: true
+       
+    App\Connectors\:
+        resource: '../src/Connectors'
+        public: true
+       
+    App\EventListener\DataObjectListener:
+        tags:
+            - { name: kernel.event_listener, event: pimcore.admin.dataobject.preGetData, method: onPreGetData }
 
     # Example custom templating helper
     # App\Templating\Helper\Example:

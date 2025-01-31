@@ -1,0 +1,84 @@
+pimcore_data_hub:
+    configurations:
+        media-import:
+            general:
+                active: true
+                type: dataImporterDataObject
+                name: media-import
+                description: ''
+                group: ''
+                path: null
+                modificationDate: 1711104824
+                createDate: 1711001620
+            loaderConfig:
+                type: upload
+                settings:
+                    uploadFilePath: media-import/upload.import
+            interpreterConfig:
+                type: xlsx
+                settings:
+                    skipFirstRow: true
+                    sheetName: Sheet1
+            resolverConfig:
+                elementType: dataObject
+                dataObjectClassId: CuttingTools
+                loadingStrategy:
+                    type: notLoad
+                createLocationStrategy:
+                    type: staticPath
+                    settings:
+                        path: '/Router Bits'
+                locationUpdateStrategy:
+                    type: noChange
+                publishingStrategy:
+                    type: noChangeUnpublishNew
+            processingConfig:
+                executionType: parallel
+                idDataIndex: ''
+            mappingConfig:
+                -
+                    label: name
+                    dataSourceIndex:
+                        - '12'
+                    transformationResultType: default
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: ManufacturerName
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline: {  }
+                -
+                    label: image
+                    dataSourceIndex:
+                        - '34'
+                    settings:
+                        parentFolder: /Assets
+                        useExisting: 'on'
+                        overwriteExisting: 'on'
+                        pregMatch: ''
+                    transformationResultType: asset
+                    dataTarget:
+                        type: direct
+                        settings:
+                            fieldName: ProductImage
+                            language: ''
+                            writeIfTargetIsNotEmpty: true
+                            writeIfSourceIsEmpty: true
+                    transformationPipeline:
+                        -
+                            settings:
+                                parentFolder: /Assets
+                                useExisting: 'on'
+                                overwriteExisting: 'on'
+                                pregMatch: ''
+                            type: importAsset
+            executionConfig:
+                scheduleType: job
+                cronDefinition: ''
+                scheduledAt: '21-03-2024 00:00'
+            permissions:
+                user: {  }
+                role: {  }
+            workspaces: {  }

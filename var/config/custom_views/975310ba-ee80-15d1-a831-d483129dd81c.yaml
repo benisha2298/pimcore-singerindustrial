@@ -1,0 +1,34 @@
+pimcore:
+    custom_views:
+        definitions:
+            975310ba-ee80-15d1-a831-d483129dd81c:
+                name: TaxonomiesCategories
+                treetype: object
+                position: left
+                rootfolder: /Taxonomies
+                showroot: true
+                sort: 0
+                treeContextMenu:
+                    object:
+                        items:
+                            add: true
+                            addFolder: true
+                            importCsv: true
+                            cut: true
+                            copy: true
+                            paste: true
+                            delete: true
+                            rename: true
+                            reload: true
+                            publish: true
+                            unpublish: true
+                            searchAndMove: true
+                            lock: true
+                            unlock: true
+                            lockAndPropagate: true
+                            unlockAndPropagate: true
+                            changeChildrenSortBy: true
+                classes: CategoryOrTaxonomy
+                icon: /bundles/pimcoreadmin/img/flat-color-icons/list.svg
+                joins: {  }
+                id: 975310ba-ee80-15d1-a831-d483129dd81c

@@ -1,12 +1,12 @@
 pimcore_data_hub:
     configurations:
-        singerindustrialdata:
+        testing:
             general:
                 type: dataImporterDataObject
                 path: null
-                name: singerindustrialdata
-                modificationDate: 1685168958
-                createDate: 1685168958
+                name: testing
+                modificationDate: 1731733722
+                createDate: 1731733722
             workspaces: {  }
             permissions:
                 user: {  }
